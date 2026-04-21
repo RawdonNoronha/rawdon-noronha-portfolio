@@ -1,22 +1,22 @@
-"use client"
-import React, { useState } from "react";
+"use client";
+import CustomCircle from "@/app/assests/CustomCircle";
+import React from "react";
 
 const Header = () => {
-  const [selected, setSelected] = useState(false);
-
   return (
-    <header className="w-full sticky top-0 left-0 backdrop-blur-sm">
-      <div className=" ml-0 mr-0 md:ml-20 md:mr-20">
-        {/* Top fade layer */}
-        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/5 pointer-events-none"></div>
+    <header className="w-full sticky top-0 left-0 backdrop-blur-sm relative">
+      <div className="ml-0 mr-0 md:mx-20">
+        {/* Gradient (behind everything) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent pointer-events-none z-0"></div>
 
         {/* Top Header */}
-        <div className="flex items-center justify-between px-6 py-8">
+        <div className="flex items-center justify-between px-6 py-8 relative z-10">
           {/* Logo */}
-          <div className="text-xl text-white font-bold">Logo</div>
+          {/* <div className="text-xl text-white font-bold">Logo</div> */}
+          <CustomCircle />
 
           {/* Links (desktop only) */}
-          <nav className="hidden md:flex gap-6">
+          <nav className="hidden md:flex gap-6 text-white">
             <a href="#">Home</a>
             <a href="#">About</a>
             <a href="#">Contact</a>
@@ -24,7 +24,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Bottom Nav */}
-        <nav className="fixed bottom-0 left-0 w-full flex justify-around py-3 bg-white border-t md:hidden">
+        <nav className="fixed bottom-0 left-0 w-full flex justify-around py-3 bg-white border-t md:hidden z-20">
           <a href="#">Home</a>
           <a href="#">About</a>
           <a href="#">Contact</a>
