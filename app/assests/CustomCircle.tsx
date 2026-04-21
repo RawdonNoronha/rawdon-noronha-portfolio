@@ -1,8 +1,9 @@
+"use client";
 import React, { useEffect, useRef } from "react";
 
 const CustomCircle = () => {
-  const leftEye = useRef(null);
-  const rightEye = useRef(null);
+  const leftEye = useRef<SVGGElement | null>(null);
+  const rightEye = useRef<SVGGElement | null>(null);
 
   useEffect(() => {
     const handleMove = (e: any) => {

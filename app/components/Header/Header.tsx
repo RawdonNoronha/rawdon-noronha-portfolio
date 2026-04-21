@@ -4,15 +4,14 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="w-full sticky top-0 left-0 backdrop-blur-sm relative">
+    <header className="w-full sticky top-0 left-0 backdrop-blur-sm">
       <div className="ml-0 mr-0 md:mx-20">
         {/* Gradient (behind everything) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent pointer-events-none z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black from-30% via-black/80 from-30% via-black/40 from-20% to-transparent pointer-events-none z-0"></div>
 
         {/* Top Header */}
         <div className="flex items-center justify-between px-6 py-8 relative z-10">
           {/* Logo */}
-          {/* <div className="text-xl text-white font-bold">Logo</div> */}
           <CustomCircle />
 
           {/* Links (desktop only) */}
