@@ -18,7 +18,7 @@ export default function Header() {
     <>
       <header className="sticky top-0 left-0 z-10 flex w-full flex-col overflow-clip">
         {/* Gradient fade overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-transparent dark:from-gray-900 dark:via-gray-900/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#ffffff] via-[#ffffff]/80 to-transparent dark:from-black/60 dark:via-black/50" />
         
         {/* Progressive blur layers */}
         <div className="pointer-events-none absolute inset-0">

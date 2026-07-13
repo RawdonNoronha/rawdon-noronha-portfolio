@@ -1,5 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
+import { Badge } from "../components/ui/badge";
+import { badges } from "./constants/constants";
+import CustomLink from "./assests/CustomLink";
 
 export default function Home() {
   const fadeUp = {
@@ -13,35 +16,54 @@ export default function Home() {
         <br></br>
         <br></br>
         <br></br>
-        <div className="md:flex md:justify-between">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-120px" }}
-            transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}
-          >
-            <div className="flex justify-between gap-40">
-              <div>
-                <h1 className="text-6xl text-vivid-orange">Rawdon Arvino</h1>
-                <h1 className="text-5xl text-gray-400">Jobais Noronha</h1>
-                <button className="px-4 py-2 bg-vivid-orange text-white rounded-lg">Linked In</button>
-                <button className="px-4 py-2 border border-gray-300 rounded-lg">Email</button>
+        <br></br>
+        <br></br>
+        <br></br>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}
+        >
+          <div className="flex justify-between">
+            <div>
+              <h1 className="text-7xl font-heading text-white">
+                Rawdon Arvino
+              </h1>
+              <h1 className="text-6xl text-gray-400">Jobais Noronha</h1>
+              <button className="px-4 py-2 bg-vivid-orange text-white rounded-lg">
+                Linked In
+              </button>
+              <button className="px-4 py-2 border border-gray-300 rounded-lg">
+                Email
+              </button>
+            </div>
+            
+            <div className="flex flex-col gap-7">
+              <div className="flex flex-col gap-2">
+                <p className="font-mono text-sm text-gray-400">CURRENTLY</p>
+                <p className="font-mono">
+                  Full Stack Web Developer{" "}
+                  <span className="inline-flex items-center gap-1 underline underline-offset-4 cursor-pointer">
+                    @13thJune Infotech <CustomLink />
+                  </span>
+                </p>
               </div>
-              <div className="flex flex-col-reverse">
-                <div className="gap-5">
-                  <h3 className="font-mono text-gray-400">CURRENTLY</h3>
-                  <p>
-                    Full stack web developer{" "}
-                    <span className="underline underline-offset-4 cursor-pointer">
-                      @13thJuneInfotech
-                    </span>
-                  </p>
+
+              <div className="flex flex-col gap-2">
+                <p className="font-mono text-sm text-gray-400">FOCUS</p>
+                <div className="flex flex-wrap gap-2">
+                  {badges.map((item) => (
+                    <Badge key={item.id} variant="secondary">
+                      {item.title}
+                    </Badge>
+                  ))}
                 </div>
               </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
         {/* <div className="animate-shake  bg-blue-500 p-4 text-white">Test</div> */}
         <br></br>
         <br></br>
