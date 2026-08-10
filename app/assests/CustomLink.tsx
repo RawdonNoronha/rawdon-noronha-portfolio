@@ -12,17 +12,16 @@ const CustomLink = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="bg-vivid-orange"
       aria-hidden="true"
       role="presentation"
     >
-      <g 
-    //   style="transform: none; transform-origin: 50% 50%; transform-box: fill-box;"
+      <g
+      //   style="transform: none; transform-origin: 50% 50%; transform-box: fill-box;"
       >
-        <path d="m21 3-9 9"></path>
-        <path d="M15 3h6v6"></path>
+        <path d="m21 3-9 9" stroke="currentColor" className="text-vivid-orange" ></path>
+        <path d="M15 3h6v6" stroke="currentColor" className="text-vivid-orange"></path>
       </g>
-      <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path>
+      <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" stroke="currentColor" className="text-vivid-orange"></path>
     </svg>
   );
 };
