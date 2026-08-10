@@ -31,9 +31,7 @@ export const projects = [
         id: 0,
         projectTitle: "KISIT Health Care App",
         titleDescription: "A web application for managing health records and appointments.",
-        projectAction: "View",
         projectContent: "A health care application that schedules appointments and manages patient records. With an employee",
-        url: "https://example.com/kisit-health",
         projectBadges: [0, 4, 5, 9, 10]
     },
     {

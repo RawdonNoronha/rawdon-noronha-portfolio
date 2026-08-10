@@ -20,7 +20,7 @@ export default function Header() {
       <header className="sticky top-0 left-0 z-10 flex w-full flex-col overflow-clip">
         {/* Gradient fade overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#ffffff] via-[#ffffff]/80 to-transparent dark:from-black/60 dark:via-black/50" />
-        
+
         {/* Progressive blur layers */}
         <div className="pointer-events-none absolute inset-0">
           {[...Array(12)].map((_, i) => {
@@ -29,7 +29,7 @@ export default function Header() {
             const midEnd = ((i + 2) * 100) / 13;
             const endPercent = ((i + 3) * 100) / 13;
             const blurAmount = i * 0.5;
-            
+
             return (
               <div
                 key={i}
@@ -142,14 +142,16 @@ export default function Header() {
                   <div className="w-full rounded-lg border border-gray-200 p-1 backdrop-blur-sm dark:border-gray-700">
                     <ul className="flex flex-1 items-stretch justify-between rounded-sm bg-white font-mono text-base font-medium uppercase tracking-wider dark:bg-black sm:gap-2">
                       {navItems.map((item) => (
-                        <li key={item.href} className="flex-1">
+                        <li key={item.href} className="flex-1 min-w-0">
                           <Link
                             href={item.href}
                             data-active={pathname === item.href}
                             aria-current={pathname === item.href ? "page" : undefined}
-                            className="relative inline-flex w-full items-center justify-center rounded-sm px-3 py-2.5 text-gray-500 transition-colors hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 data-[active=true]:text-gray-900 dark:text-gray-400 dark:hover:text-white dark:focus-visible:ring-white dark:data-[active=true]:text-white"
+                            className="relative inline-flex w-full items-center justify-center rounded-sm px-2 sm:px-3 py-2.5 text-xs sm:text-sm text-gray-500 transition-colors hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 data-[active=true]:text-gray-900 dark:text-gray-400 dark:hover:text-white dark:focus-visible:ring-white dark:data-[active=true]:text-white"
                           >
-                            <span className="relative z-10 whitespace-nowrap">{item.label}</span>
+                            <span className="relative z-10 min-w-0 overflow-hidden text-ellipsis whitespace-nowrap truncate">
+                              {item.label}
+                            </span>
                           </Link>
                         </li>
                       ))}

@@ -45,27 +45,25 @@ export default function Home() {
               <h1 className="text-4xl lg:text-6xl text-gray-400">Jobais Noronha</h1>
             </div>
             <div className="flex flex-row gap-2">
-              <button className="px-4 py-2 bg-vivid-orange text-black rounded-lg">
-                Linked In
-              </button>
-              <button className="px-4 py-2 border border-gray-300 rounded-lg">
-                Email
-              </button>
+                <button type="button" className="px-4 py-2 bg-vivid-orange text-black rounded-lg">
+                  Linked In
+                </button>
+                <button type="button" className="px-4 py-2 border border-gray-300 rounded-lg">
+                  Email
+                </button>
+              </div>
             </div>
-          </div>
-
           {/* Status */}
           <div className="flex flex-col gap-7 lg:w-1/3">
             <div className="flex flex-col gap-2">
-              <p className="font-mono text-sm text-gray-400">CURRENTLY</p>
-              <p className="font-mono">
-                Full Stack Web Developer{" "}
-                <span className="inline-flex items-center gap-1 underline underline-offset-4 cursor-pointer">
-                  @13thJune Infotech <CustomLink />
-                </span>
-              </p>
-            </div>
-
+                <p className="font-mono text-sm text-gray-400">CURRENTLY</p>
+                <p className="font-mono">
+                  Full Stack Web Developer{" "}
+                  <span className="inline-flex items-center gap-1 underline underline-offset-4 cursor-pointer">
+                    @13thJune Infotech <CustomLink />
+                  </span>
+                </p>
+              </div>
             {/* Skill Badges */}
             <div className="flex flex-col gap-2">
               <p className="font-mono text-sm text-gray-400">SKILLS</p>
@@ -116,17 +114,19 @@ export default function Home() {
                     <CardHeader>
                       <CardTitle>{project.projectTitle}</CardTitle>
                       <CardDescription>{project.titleDescription}</CardDescription>
-                      <CardAction>
-                        <a
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 hover:underline"
-                        >
-                          {project.projectAction}
-                          <CustomLink />
-                        </a>
-                      </CardAction>
+                      {project.url && project.projectAction ? (
+                        <CardAction>
+                          <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 hover:underline"
+                          >
+                            {project.projectAction}
+                            <CustomLink />
+                          </a>
+                        </CardAction>
+                      ) : null}
                     </CardHeader>
                     <CardContent>
                       <p>{project.projectContent}</p>
@@ -160,17 +160,17 @@ export default function Home() {
             <h1 className='text-4xl'>
               Experience
             </h1>
-            <div className="relative pl-8">
-              <div className="absolute left-4 top-8 bottom-0 w-px bg-gray-700" />
+            <div className="relative">
+              <div className="absolute left-[calc(7rem+1rem+1.25rem)] top-8 bottom-0 w-px bg-gray-700" />
               <div className="flex flex-col gap-8">
                 {experiences.map((exp) => (
                   <div key={exp.id} className="flex gap-4">
                     <div className="w-28 text-sm text-gray-400">{exp.date}</div>
+                    <div className="flex w-10 flex-col items-center justify-start">
+                      <div className="mt-1 h-3 w-3 rounded-full bg-vivid-orange border-2 border-gray-900" />
+                    </div>
                     <div className="flex-1">
                       <div className="flex items-start gap-4">
-                        <div className="mt-1">
-                          <div className="w-3 h-3 bg-vivid-orange rounded-full border-2 border-gray-900" />
-                        </div>
                         <div>
                           <h3 className="font-semibold">{exp.role} <span className="text-sm text-gray-400">— {exp.company}</span></h3>
                           <p className="text-sm text-gray-300">{exp.description}</p>
