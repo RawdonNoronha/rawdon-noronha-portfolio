@@ -6,7 +6,7 @@ export const navigationOptions = [
 ];
 
 export const badges = [
-    { id: 0, title: "React" },
+    { id: 0, title: "ReactJS" },
     { id: 1, title: "NextJS" },
     { id: 2, title: "TypeScript" },
     { id: 3, title: "Tailwind CSS" },

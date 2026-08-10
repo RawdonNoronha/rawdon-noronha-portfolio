@@ -22,29 +22,31 @@ export default function Home() {
   return (
     <>
       <div className="mx-5 md:mx-82">
-        {/* Space */}
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        {/* <br></br> */}
-        {/* <br></br> */}
-        {/* <motion.div
+        <section id="intro">
+          {/* Space */}
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          {/* <br></br> */}
+          {/* <br></br> */}
+          {/* <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-120px" }}
           transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}
         > */}
-        <div className="flex flex-col gap-8 lg:flex-row lg:justify-between lg:gap-12 lg:items-start">
+          {/* Intro Section */}
 
-          {/* Description */}
-          <div className="flex flex-col gap-4 lg:flex-1">
-            <div>
-              <h1 className="text-[2.65rem] lg:text-7xl font-heading text-white">Rawdon Arvino</h1>
-              <h1 className="text-4xl lg:text-6xl text-gray-400">Jobais Noronha</h1>
-            </div>
-            <div className="flex flex-row gap-2">
+          <div className="flex flex-col gap-8 lg:flex-row lg:justify-between lg:gap-12 lg:items-start">
+            {/* Description */}
+            <div className="flex flex-col gap-4 lg:flex-1">
+              <div>
+                <h1 className="text-[2.65rem] lg:text-7xl font-heading text-white">Rawdon Arvino</h1>
+                <h1 className="text-4xl lg:text-6xl text-gray-400">Jobais Noronha</h1>
+              </div>
+              <div className="flex flex-row gap-2">
                 <button type="button" className="px-4 py-2 bg-vivid-orange text-black rounded-lg">
                   Linked In
                 </button>
@@ -53,9 +55,9 @@ export default function Home() {
                 </button>
               </div>
             </div>
-          {/* Status */}
-          <div className="flex flex-col gap-7 lg:w-1/3">
-            <div className="flex flex-col gap-2">
+            {/* Status */}
+            <div className="flex flex-col gap-7 lg:w-1/3">
+              <div className="flex flex-col gap-2">
                 <p className="font-mono text-sm text-gray-400">CURRENTLY</p>
                 <p className="font-mono">
                   Full Stack Web Developer{" "}
@@ -64,20 +66,21 @@ export default function Home() {
                   </span>
                 </p>
               </div>
-            {/* Skill Badges */}
-            <div className="flex flex-col gap-2">
-              <p className="font-mono text-sm text-gray-400">SKILLS</p>
-              <div className="flex flex-wrap gap-2">
-                {badges.map((item) => (
-                  <Badge key={item.id} variant="secondary">
-                    {item.title}
-                  </Badge>
-                ))}
+              {/* Skill Badges */}
+              <div className="flex flex-col gap-2">
+                <p className="font-mono text-sm text-gray-400">SKILLS</p>
+                <div className="flex flex-wrap gap-2">
+                  {badges.map((item) => (
+                    <Badge key={item.id} variant="secondary">
+                      {item.title}
+                    </Badge>
+                  ))}
+                </div>
               </div>
-            </div>
 
+            </div>
           </div>
-        </div>
+        </section>
 
         {/* </motion.div> */}
 
@@ -97,12 +100,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Space */}
-        <br></br>
-        <br></br>
-
         {/* Projects Section */}
-        <section>
+        <section id="projects">
+          {/* Space */}
+          <br></br>
+          <br></br>
           <div className="flex flex-col gap-4">
             <h1 className='text-4xl'>
               Projects
@@ -150,12 +152,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Space */}
-        <br></br>
-        <br></br>
-
         {/* Experience Section */}
-        <section>
+        <section id="experience">
+          {/* Space */}
+          <br></br>
+          <br></br>
           <div className="flex flex-col gap-4">
             <h1 className='text-4xl'>
               Experience

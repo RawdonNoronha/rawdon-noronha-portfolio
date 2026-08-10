@@ -1,18 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+// import { useState } from "react";
 
 export default function Header() {
-  const pathname = usePathname();
-  const [soundEnabled, setSoundEnabled] = useState(false);
+  // const [soundEnabled, setSoundEnabled] = useState(false);
 
   const navItems = [
-    { href: "/", label: "Intro" },
-    { href: "/projects", label: "Projects" },
-    { href: "/thoughts", label: "Experience" },
-    // { href: "/212", label: "Skills" },
+    { href: "#intro", label: "Intro" },
+    { href: "#projects", label: "Projects" },
+    { href: "#experience", label: "Experience" },
+    // { href: "#skills", label: "Skills" },
   ];
 
   return (
@@ -103,14 +101,12 @@ export default function Header() {
                 <ul className="flex gap-0.5">
                   {navItems.map((item) => (
                     <li key={item.href}>
-                      <Link
+                      <a
                         href={item.href}
-                        data-active={pathname === item.href}
-                        aria-current={pathname === item.href ? "page" : undefined}
-                        className="relative inline-flex shrink-0 items-center justify-center rounded-sm px-3 py-1.5 font-mono text-sm font-medium uppercase tracking-wider text-gray-500 transition-colors hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 data-[active=true]:text-gray-900 dark:text-gray-400 dark:hover:text-white dark:focus-visible:ring-white dark:data-[active=true]:text-white"
+                        className="relative inline-flex shrink-0 items-center justify-center rounded-sm px-3 py-1.5 font-mono text-sm font-medium uppercase tracking-wider text-gray-500 transition-colors hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:text-gray-400 dark:hover:text-white dark:focus-visible:ring-white"
                       >
                         <span className="relative z-10 whitespace-nowrap">{item.label}</span>
-                      </Link>
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -143,16 +139,14 @@ export default function Header() {
                     <ul className="flex flex-1 items-stretch justify-between rounded-sm bg-white font-mono text-base font-medium uppercase tracking-wider dark:bg-black sm:gap-2">
                       {navItems.map((item) => (
                         <li key={item.href} className="flex-1 min-w-0">
-                          <Link
+                          <a
                             href={item.href}
-                            data-active={pathname === item.href}
-                            aria-current={pathname === item.href ? "page" : undefined}
-                            className="relative inline-flex w-full items-center justify-center rounded-sm px-2 sm:px-3 py-2.5 text-xs sm:text-sm text-gray-500 transition-colors hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 data-[active=true]:text-gray-900 dark:text-gray-400 dark:hover:text-white dark:focus-visible:ring-white dark:data-[active=true]:text-white"
+                            className="relative inline-flex w-full items-center justify-center rounded-sm px-2 sm:px-3 py-2.5 text-xs sm:text-sm text-gray-500 transition-colors hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:text-gray-400 dark:hover:text-white dark:focus-visible:ring-white"
                           >
                             <span className="relative z-10 min-w-0 overflow-hidden text-ellipsis whitespace-nowrap truncate">
                               {item.label}
                             </span>
-                          </Link>
+                          </a>
                         </li>
                       ))}
                     </ul>

@@ -149,7 +149,21 @@
   body {
     @apply bg-background text-foreground;
   }
+  html,
+  body {
+    scroll-behavior: smooth;
+  }
   html {
     @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .bg-vivid-orange {
+    background-color: var(--color-vivid-orange);
+  }
+
+  .text-vivid-orange {
+    color: var(--color-vivid-orange);
   }
 }
