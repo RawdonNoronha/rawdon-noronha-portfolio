@@ -11,7 +11,8 @@ export default function Header() {
   const navItems = [
     { href: "/", label: "Intro" },
     { href: "/projects", label: "Projects" },
-    { href: "/thoughts", label: "Thoughts" },
+    { href: "/thoughts", label: "Experience" },
+    // { href: "/212", label: "Skills" },
   ];
 
   return (
@@ -116,7 +117,7 @@ export default function Header() {
               </nav>
 
               {/* Sound toggle button (desktop) */}
-              <div className="hidden lg:flex">
+              {/* <div className="hidden lg:flex">
                 <button
                   onClick={() => setSoundEnabled(!soundEnabled)}
                   aria-label={soundEnabled ? "Disable sounds" : "Enable sounds"}
@@ -125,7 +126,8 @@ export default function Header() {
                 >
                   <SoundIcon muted={!soundEnabled} />
                 </button>
-              </div>
+              </div> */}
+
             </div>
           </div>
         </div>
@@ -138,7 +140,7 @@ export default function Header() {
                 {/* Navigation pills */}
                 <div className="flex flex-1">
                   <div className="w-full rounded-lg border border-gray-200 p-1 backdrop-blur-sm dark:border-gray-700">
-                    <ul className="flex flex-1 items-stretch justify-between rounded-sm bg-white font-mono text-base font-medium uppercase tracking-wider dark:bg-gray-900 sm:gap-2">
+                    <ul className="flex flex-1 items-stretch justify-between rounded-sm bg-white font-mono text-base font-medium uppercase tracking-wider dark:bg-black sm:gap-2">
                       {navItems.map((item) => (
                         <li key={item.href} className="flex-1">
                           <Link
@@ -156,7 +158,7 @@ export default function Header() {
                 </div>
 
                 {/* Sound toggle (mobile) */}
-                <div className="flex shrink-0 items-center">
+                {/* <div className="flex shrink-0 items-center">
                   <div className="rounded-lg border border-gray-200 p-1 backdrop-blur-sm dark:border-gray-700">
                     <div className="rounded-sm bg-white dark:bg-gray-900">
                       <button
@@ -169,7 +171,8 @@ export default function Header() {
                       </button>
                     </div>
                   </div>
-                </div>
+                </div> */}
+
               </div>
             </div>
           </div>
