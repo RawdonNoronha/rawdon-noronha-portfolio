@@ -13,9 +13,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { BrevoClient } from "@getbrevo/brevo";
-import { Button } from "@/components/ui/button";
-// import EmailPopUp from "./components/EmailPopUp/EmailPopUp";
+import EmailPopUp from "./components/EmailPopUp/EmailPopUp";
 
 export default function Home() {
   const [open, setOpen] = useState(false);
@@ -23,27 +21,6 @@ export default function Home() {
     hidden: { opacity: 0, y: 60 },
     show: { opacity: 1, y: 0 },
   };
-
-  const sendEmail = async () => {
-    // const client = new BrevoClient({
-    //   apiKey: PROCESS.ENV.BREVO_API_KEY || "",
-    // });
-
-    // await client.transactionalEmails.sendTransacEmail({
-    //   htmlContent: "<html><head></head><body><p>Hello,</p>This is my first transactional email sent from Brevo.</p></body></html>",
-    //   sender: {
-    //     email: "hello@brevo.com",
-    //     name: "Alex from Brevo",
-    //   },
-    //   subject: "Hello from Brevo!",
-    //   to: [
-    //     {
-    //       email: "johndoe@example.com",
-    //       name: "John Doe",
-    //     },
-    //   ],
-    // });
-  }
 
   return (
     <>
@@ -80,9 +57,7 @@ export default function Home() {
                 >
                   Linked In
                 </a>
-                <button type="button" className="px-4 py-2 border border-gray-300 rounded-lg cursor-pointer" onClick={() => setOpen(true)}>
-                  Email
-                </button>
+                <EmailPopUp open={open} setOpen={setOpen} />
               </div>
             </div>
 

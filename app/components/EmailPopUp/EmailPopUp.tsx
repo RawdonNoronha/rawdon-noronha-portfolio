@@ -1,45 +1,148 @@
-// import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose, DialogFooter } from '../../../components/ui/dialog'
-// import { Field, FieldGroup } from '../../../components/ui/field'
-// import { Input } from '../../../components/ui/input'
-// import { Label } from '../../../components/ui/label'
-// import { Button } from '../../../components/ui/button'
+"use client";
 
-// interface EmailPopUpProps {
-//   open: boolean;
-//   setOpen: () => void;
-// }
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+    DialogFooter,
+    DialogClose,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import {
+    Field,
+    FieldGroup,
+} from "@/components/ui/field";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
-// const EmailPopUp = ({open, setOpen}: EmailPopUpProps) => {
-//     return (
-//         <Dialog open={open} onOpenChange={setOpen}>
-//             <form>
-//                 <DialogTrigger render={<Button variant="outline">Open Dialog</Button>} />
-//                 <DialogContent className="sm:max-w-sm">
-//                     <DialogHeader>
-//                         <DialogTitle>Edit profile</DialogTitle>
-//                         <DialogDescription>
-//                             Make changes to your profile here. Click save when you&apos;re
-//                             done.
-//                         </DialogDescription>
-//                     </DialogHeader>
-//                     <FieldGroup>
-//                         <Field>
-//                             <Label htmlFor="name-1">Name</Label>
-//                             <Input id="name-1" name="name" defaultValue="Pedro Duarte" />
-//                         </Field>
-//                         <Field>
-//                             <Label htmlFor="username-1">Username</Label>
-//                             <Input id="username-1" name="username" defaultValue="@peduarte" />
-//                         </Field>
-//                     </FieldGroup>
-//                     <DialogFooter>
-//                         <DialogClose render={<Button variant="outline">Cancel</Button>} />
-//                         <Button type="submit">Save changes</Button>
-//                     </DialogFooter>
-//                 </DialogContent>
-//             </form>
-//         </Dialog>
-//     )
-// }
+interface EmailPopUpProps {
+    open: boolean;
+    setOpen: (open: boolean) => void;
+}
 
-// export default EmailPopUp
+const EmailPopUp = ({ open, setOpen }: EmailPopUpProps) => {
+    const [email, setEmail] = useState("");
+    const [subject, setSubject] = useState("");
+    const [message, setMessage] = useState("");
+    const [sending, setSending] = useState(false);
+
+    const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        setSending(true);
+
+        try {
+            const response = await fetch("/api/send-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email,
+                    subject,
+                    message,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || "Failed to send email");
+            }
+
+            alert("Email sent successfully!");
+
+            setEmail("");
+            setSubject("");
+            setMessage("");
+            setOpen(false);
+        } catch (error) {
+            console.error(error);
+            alert("Failed to send email. Please try again.");
+        } finally {
+            setSending(false);
+        }
+    };
+
+    return (
+        <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+                <button type="button" className="px-4 py-2 border border-gray-300 rounded-lg cursor-pointer" onClick={() => setOpen(true)}>
+                    Email
+                </button>
+            </DialogTrigger>
+
+            <DialogContent className="sm:max-w-sm">
+                <form onSubmit={sendEmail}>
+                    <DialogHeader>
+                        <DialogTitle>Send an Email</DialogTitle>
+
+                        <DialogDescription>
+                            Please contact me directly at{" "}
+                            rawdonnoronha11@gmail.com or through this form.
+                        </DialogDescription>
+                    </DialogHeader>
+
+                    <FieldGroup>
+                        <Field>
+                            <Label htmlFor="email">Email</Label>
+
+                            <Input
+                                id="email"
+                                type="email"
+                                placeholder="your.email@example.com"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                        </Field>
+
+                        <Field>
+                            <Label htmlFor="subject">Subject</Label>
+
+                            <Input
+                                id="subject"
+                                placeholder="Enter the subject"
+                                value={subject}
+                                onChange={(e) => setSubject(e.target.value)}
+                                required
+                            />
+                        </Field>
+
+                        <Field>
+                            <Label htmlFor="message">Message</Label>
+
+                            <Textarea
+                                id="message"
+                                placeholder="Enter your message"
+                                rows={10}
+                                value={message}
+                                onChange={(e) => setMessage(e.target.value)}
+                                required
+                            />
+                        </Field>
+                    </FieldGroup>
+
+                    <DialogFooter className="mt-4">
+                        <DialogClose asChild>
+                            <Button type="button" variant="outline">
+                                Cancel
+                            </Button>
+                        </DialogClose>
+
+                        <Button type="submit" disabled={sending}>
+                            {sending ? "Sending..." : "Submit"}
+                        </Button>
+                    </DialogFooter>
+                </form>
+            </DialogContent>
+        </Dialog>
+    );
+};
+
+export default EmailPopUp;
