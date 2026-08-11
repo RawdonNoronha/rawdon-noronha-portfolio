@@ -37,7 +37,7 @@ export const projects = [
     {
         id: 1,
         projectTitle: "Noronha Clothing",
-        // titleDescription: "A responsive e-commerce website for selling clothing items.",
+        titleDescription: "A responsive e-commerce website for selling clothing items.",
         projectAction: "Visit",
         projectContent: "An e-commerce platform built with modern web technologies, featuring a user-friendly interface and seamless shopping experience.",
         url: "https://noronha-clothing.netlify.app/",
