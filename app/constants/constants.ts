@@ -30,7 +30,7 @@ export const projects = [
     {
         id: 0,
         projectTitle: "KISIT Health Care",
-        // titleDescription: "A web application for managing health records and appointments.",
+        titleDescription: "",
         projectContent: "A healthcare workforce management platform for scheduling and managing home-care services. The application handles client and employee onboarding, employee scheduling, and EVV integration for location-based service verification. Verified service records are then processed for payroll management, with additional features for managing insurance providers and payment information.",
         projectBadges: [0, 4, 5, 9, 10]
     },
