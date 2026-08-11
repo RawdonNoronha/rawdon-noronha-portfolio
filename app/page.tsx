@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Badge } from "../components/ui/badge";
 import { badges, projects, experiences } from "./constants/constants";
@@ -12,16 +13,41 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { BrevoClient } from "@getbrevo/brevo";
+import { Button } from "@/components/ui/button";
+// import EmailPopUp from "./components/EmailPopUp/EmailPopUp";
 
 export default function Home() {
+  const [open, setOpen] = useState(false);
   const fadeUp = {
     hidden: { opacity: 0, y: 60 },
     show: { opacity: 1, y: 0 },
   };
 
+  const sendEmail = async () => {
+    // const client = new BrevoClient({
+    //   apiKey: PROCESS.ENV.BREVO_API_KEY || "",
+    // });
+
+    // await client.transactionalEmails.sendTransacEmail({
+    //   htmlContent: "<html><head></head><body><p>Hello,</p>This is my first transactional email sent from Brevo.</p></body></html>",
+    //   sender: {
+    //     email: "hello@brevo.com",
+    //     name: "Alex from Brevo",
+    //   },
+    //   subject: "Hello from Brevo!",
+    //   to: [
+    //     {
+    //       email: "johndoe@example.com",
+    //       name: "John Doe",
+    //     },
+    //   ],
+    // });
+  }
+
   return (
     <>
-      <div className="mx-5 md:mx-82">
+      <div className="mx-5 md:mx-80">
         <section id="intro">
           {/* Space */}
           <br></br>
@@ -37,9 +63,10 @@ export default function Home() {
           viewport={{ once: true, margin: "-120px" }}
           transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}
         > */}
-          {/* Intro Section */}
 
+          {/* Intro Section */}
           <div className="flex flex-col gap-8 lg:flex-row lg:justify-between lg:gap-12 lg:items-start">
+
             {/* Description */}
             <div className="flex flex-col gap-4 lg:flex-1">
               <div>
@@ -47,14 +74,20 @@ export default function Home() {
                 <h1 className="text-4xl lg:text-6xl text-gray-400">Jobais Noronha</h1>
               </div>
               <div className="flex flex-row gap-2">
-                <button type="button" className="px-4 py-2 bg-vivid-orange text-black rounded-lg">
-                  Linked In
-                </button>
-                <button type="button" className="px-4 py-2 border border-gray-300 rounded-lg">
+                <a href="https://www.linkedin.com/in/rawdon-noronha-43a7ba173?utm_source=share_via&utm_content=profile&utm_medium=member_android">
+                  <button type="button" className="px-4 py-2 bg-vivid-orange text-black rounded-lg cursor-pointer">
+                    Linked In
+                  </button>
+                </a>
+                {/* <a href="mailto:rawdonnoronha11@gmail.com"> */}
+                <button type="button" className="px-4 py-2 border border-gray-300 rounded-lg cursor-pointer" onClick={() => setOpen(true)}>
                   Email
                 </button>
+                {/* <EmailPopUp open={open} setOpen={() => setOpen(!open)} /> */}
+                {/* </a> */}
               </div>
             </div>
+
             {/* Status */}
             <div className="flex flex-col gap-7 lg:w-1/3">
               <div className="flex flex-col gap-2">
@@ -66,12 +99,13 @@ export default function Home() {
                   </span>
                 </p>
               </div>
+
               {/* Skill Badges */}
               <div className="flex flex-col gap-2">
                 <p className="font-mono text-sm text-gray-400">SKILLS</p>
                 <div className="flex flex-wrap gap-2">
                   {badges.map((item) => (
-                    <Badge key={item.id} variant="secondary">
+                    <Badge key={item.id} variant={item.variant}>
                       {item.title}
                     </Badge>
                   ))}
@@ -94,9 +128,15 @@ export default function Home() {
             <h1 className='text-4xl'>
               About Me
             </h1>
-            <div className="">
-              After graduating from Don Bosco and securing a CGPA of 8.03 i ventured off to finding a job in tech and i stumbled upon a company 13JuneInfotech Pvt Ltd.
-            </div>
+            <p className="text-lg text-gray-300">
+              I'm a Computer Engineering graduate and software developer who enjoys turning ideas into engaging, practical digital experiences. My work spans frontend development, backend systems, and machine learning, with hands-on experience building applications using React, Next.js, ASP.NET, JavaScript, SQL, and Python.
+            </p>
+            <p className="text-lg text-gray-300">
+              I enjoy understanding how things work, solving challenging problems, and constantly experimenting with new technologies. Whether I'm building a polished web experience, developing an API, or exploring computer vision, I'm always looking for ways to make my work smarter, cleaner, and more impactful.
+            </p>
+            <h1 className="text-3xl italic text-gray-400 font-mono">
+              <span className="text-vivid-orange">"</span>Always learning. Always building. Always looking for the next challenge.<span className="text-vivid-orange">"</span>
+            </h1>
           </div>
         </section>
 
