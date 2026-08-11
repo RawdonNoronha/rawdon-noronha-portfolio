@@ -6,8 +6,25 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors:{
-        "vivid-orange": "#FA7108"
+      fontFamily: {
+        sans: [
+          'Elms Sans',
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'Noto Sans',
+          'Apple Color Emoji',
+          'Segoe UI Emoji',
+          'Segoe UI Symbol',
+        ],
+        heading: ['Elms Sans', 'ui-sans-serif', 'system-ui'],
+      },
+      colors: {
+        "vivid-orange": "#FA7108",
       },
       keyframes: {
         shake: {
