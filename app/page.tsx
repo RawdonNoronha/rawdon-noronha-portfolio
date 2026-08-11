@@ -199,26 +199,38 @@ export default function Home() {
             <h1 className='text-4xl'>
               Experience
             </h1>
-            <div className="relative">
-              <div className="absolute left-[calc(7rem+1rem+1.25rem)] top-8 bottom-0 w-px bg-gray-700" />
-              <div className="flex flex-col gap-8">
-                {experiences.map((exp) => (
-                  <div key={exp.id} className="flex gap-4">
-                    <div className="w-28 text-sm text-gray-400">{exp.date}</div>
-                    <div className="flex w-10 flex-col items-center justify-start">
-                      <div className="mt-1 h-3 w-3 rounded-full bg-vivid-orange border-2 border-gray-900" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-start gap-4">
-                        <div>
-                          <h3 className="font-semibold">{exp.role} <span className="text-sm text-gray-400">— {exp.company}</span></h3>
-                          <p className="text-sm text-gray-300">{exp.description}</p>
-                        </div>
-                      </div>
-                    </div>
+            <div className="flex flex-col gap-8">
+              {experiences.map((exp) => (
+                <div key={exp.id} className="flex gap-2 sm:gap-4">
+                  {/* Date */}
+                  <div className="w-20 shrink-0 text-right text-xs text-gray-400 sm:w-28 sm:text-sm">
+                    {exp.date}
                   </div>
-                ))}
-              </div>
+
+                  {/* Timeline */}
+                  <div className="relative flex w-6 shrink-0 justify-center sm:w-10">
+                    {/* Vertical line */}
+                    <div className="absolute top-0 bottom-0 w-px bg-gray-700" />
+
+                    {/* Dot */}
+                    <div className="relative z-10 mt-1 h-3 w-3 shrink-0 rounded-full border-2 border-gray-900 bg-vivid-orange" />
+                  </div>
+
+                  {/* Experience content */}
+                  <div className="min-w-0 flex-1">
+                    <h3 className="font-semibold">
+                      {exp.role}{" "}
+                      <span className="text-sm text-gray-400">
+                        — {exp.company}
+                      </span>
+                    </h3>
+
+                    <p className="text-sm text-gray-300">
+                      {exp.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
