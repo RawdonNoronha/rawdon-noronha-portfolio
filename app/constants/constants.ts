@@ -23,7 +23,10 @@ export const badges = [
     { id: 14, title: "CSS", variant: "secondary" as const },
     { id: 15, title: "Bootstrap", variant: "default" as const },
     { id: 16, title: "SCSS", variant: "secondary" as const },
-    { id: 17, title: "Shadcn UI", variant: "default" as const }
+    { id: 17, title: "Shadcn UI", variant: "default" as const },
+    { id: 18, title: "CodeIgniter", variant: "secondary" as const },
+    { id: 19, title: "ML", variant: "default" as const },
+    { id: 20, title: "OpenCV", variant: "secondary" as const },
 ]
 
 export const projects = [
