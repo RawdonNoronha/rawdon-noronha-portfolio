@@ -13,7 +13,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import EmailPopUp from "./components/EmailPopUp/EmailPopUp";
+import EmailDialog from "./components/EmailDialog/EmailDialog";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   const [open, setOpen] = useState(false);
@@ -57,14 +58,14 @@ export default function Home() {
                 >
                   Linked In
                 </a>
-                <EmailPopUp open={open} setOpen={setOpen} />
+                <EmailDialog open={open} setOpen={setOpen} />
               </div>
             </div>
 
             {/* Status */}
             <div className="flex flex-col gap-7 lg:w-1/3">
               <div className="flex flex-col gap-2">
-                <p className="font-mono text-sm text-gray-400">CURRENTLY</p>
+                <p className="font-mono text-sm text-gray-400">RECENTLY</p>
                 <p className="font-mono">
                   Full Stack Web Developer{" "}
                   <span className="inline-flex items-center gap-1 underline underline-offset-4 cursor-pointer">
@@ -94,6 +95,10 @@ export default function Home() {
         {/* Space */}
         <br></br>
         <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
         {/* About Section */}
         <section>
@@ -107,9 +112,15 @@ export default function Home() {
             <p className="text-lg text-gray-300">
               I enjoy understanding how things work, solving challenging problems, and constantly experimenting with new technologies. Whether I&apos;m building a polished web experience, developing an API, or exploring computer vision, I&apos;m always looking for ways to make my work smarter, cleaner, and more impactful.
             </p>
-            <h1 className="text-3xl italic text-gray-400 font-mono">
+            <br></br>
+            <br></br>
+            <br></br>
+            <h1 className="text-3xl italic text-white font-mono">
               <span className="text-vivid-orange">&quot;</span>Always learning. Always building. Always looking for the next challenge.<span className="text-vivid-orange">&quot;</span>
             </h1>
+            <br></br>
+            <br></br>
+            <br></br>
           </div>
         </section>
 
@@ -165,6 +176,13 @@ export default function Home() {
           </div>
         </section>
 
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
         {/* Experience Section */}
         <section id="experience">
           {/* Space */}
@@ -214,6 +232,10 @@ export default function Home() {
         <br></br>
         <br></br>
         <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
       </div>
     </>
   );
