@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -31,10 +31,16 @@ const EmailDialog = ({ open, setOpen }: EmailDialogProps) => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
+  const isSendingRef = useRef(false);
 
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (isSendingRef.current) {
+      return;
+    }
+
+    isSendingRef.current = true;
     setSending(true);
 
     try {
@@ -54,10 +60,8 @@ const EmailDialog = ({ open, setOpen }: EmailDialogProps) => {
 
       if (!response.ok) {
         toast.error("Failed to send email")
-        // throw new Error(data.error || "Failed to send email");
       }
 
-      // alert("Email sent successfully!");
       toast.success("Email sent successfully!")
 
       setEmail("");
@@ -66,9 +70,10 @@ const EmailDialog = ({ open, setOpen }: EmailDialogProps) => {
       setOpen(false);
     } catch (error) {
       console.error(error);
-      alert("Failed to send email. Please try again.");
+      toast.error("Failed to send email")
     } finally {
       setSending(false);
+      isSendingRef.current = false;
     }
   };
 
